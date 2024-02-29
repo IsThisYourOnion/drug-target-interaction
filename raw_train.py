@@ -23,7 +23,7 @@ class Tox21Dataset(Dataset):
     def __getitem__(self, idx):
         # Get the molecule as a fingerprint and the label
         x = self.dataset.X[idx]
-        y = self.dataset.y[idx, 0]  # Assuming we're focusing on the first task
+        y = self.dataset.y[idx, 0]  
         return torch.tensor(x, dtype=torch.float), torch.tensor(y, dtype=torch.float)
 
 # Convert DeepChem datasets to PyTorch datasets
@@ -57,8 +57,6 @@ def train_model(model, criterion, optimizer, train_loader, num_epochs=10):
             loss.backward()
             optimizer.step()
         print(f'Epoch {epoch+1}/{num_epochs}, Loss: {loss.item()}')
-
-
 
 def evaluate_model(model, data_loader):
     model.eval()
