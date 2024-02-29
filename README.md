@@ -1,1 +1,6 @@
 # drug-target-interaction
+
+## Motivation
+I recently learned about the field of toxicity prediction and its potential to reduce animal testing by predicting the toxicity of chemicals using computational methods. Intrigued by the intersection of biology and machine learning, I decided to delve into this area myself. My exploration is motivated by the advancements in deep learning for toxicology, such as those detailed in the paper "Deep Learning for Environmental Toxicity Prediction: A Review" (Journal of Chemical Information and Modeling, 2021), which highlights the effectiveness of deep learning models in predicting chemical toxicity.
+
+With this inspiration, I aimed to develop a simple toxicity predictor using PyTorch. My project focuses on training a model from scratch and exploring the application of transfer learning to improve prediction accuracy. By leveraging the capabilities of PyTorch and the principles of transfer learning, I hope to contribute to the efforts of minimizing animal testing in chemical safety assessments.
