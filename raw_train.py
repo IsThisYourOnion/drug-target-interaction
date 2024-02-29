@@ -2,16 +2,14 @@ import deepchem as dc
 import torch
 from torch.utils.data import Dataset, DataLoader
 import torch.nn as nn
-
+import tensorflow
 
 # Load the Tox21 dataset
-tasks, datasets, transformers = dc.molnet.load_tox21()
+tasks, datasets, transformer = dc.molnet.load_tox21()
 train_dataset, valid_dataset, test_dataset = datasets
 
 # Select a single task for demonstration
 selected_task = tasks[0]  
-
-
 
 
 class Tox21Dataset(Dataset):
@@ -60,12 +58,7 @@ def train_model(model, criterion, optimizer, train_loader, num_epochs=10):
             optimizer.step()
         print(f'Epoch {epoch+1}/{num_epochs}, Loss: {loss.item()}')
 
-model = Tox21Predictor(input_size=train_dataset.X.shape[1])
-criterion = nn.BCELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-train_loader = DataLoader(train_dataset_pytorch, batch_size=64, shuffle=True)
-train_model(model, criterion, optimizer, train_loader)
 
 def evaluate_model(model, data_loader):
     model.eval()
@@ -80,5 +73,10 @@ def evaluate_model(model, data_loader):
     accuracy = 100 * correct / total
     print(f'Accuracy: {accuracy:.2f}%')
 
+model = Tox21Predictor(input_size=train_dataset.X.shape[1])
+criterion = nn.BCELoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+train_loader = DataLoader(train_dataset_pytorch, batch_size=64, shuffle=True)
+train_model(model, criterion, optimizer, train_loader)
 valid_loader = DataLoader(valid_dataset_pytorch, batch_size=64, shuffle=False)
 evaluate_model(model, valid_loader)
