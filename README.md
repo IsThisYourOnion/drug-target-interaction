@@ -1,4 +1,4 @@
-# drug-target-interaction
+
 
 ## Motivation
 I recently learned about the field of toxicity prediction and its potential to reduce animal testing by predicting the toxicity of chemicals using computational methods. Intrigued by the intersection of biology and machine learning, I decided to delve into this area myself. My exploration is motivated by the advancements in deep learning for toxicology, such as those detailed in the paper "Deep Learning for Environmental Toxicity Prediction: A Review" (Journal of Chemical Information and Modeling, 2021), which highlights the effectiveness of deep learning models in predicting chemical toxicity.
